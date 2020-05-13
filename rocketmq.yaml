@@ -1,0 +1,6 @@
+name: RocketMQ
+driverClass: io.openmessaging.chaos.driver.demo.imp.RMQChaosDriver
+
+clusterName: DefaultCluster
+namesrvAddr: localhost:9876
+
