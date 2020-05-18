@@ -5,7 +5,8 @@ keyword=${main##*.}
 echo $keyword
 PROG_NAME=$0
 ACTION=$2
-JAVA_PORT="8000"
+
+
 
 usage() {
     echo "Usage: $PROG_NAME {start|stop|restart}"
@@ -18,6 +19,7 @@ if [ $# -lt 1 ]; then
 fi
 
 APP_HOME=$(cd $(dirname $0)/..; pwd)
+
 #source "$APP_HOME/bin/setenv.sh"
 
 startjava() {
@@ -26,7 +28,8 @@ startjava() {
     cd ${EXPLODED_TARGET} || exit 1
     echo "        -- java stdout log: ${JAVA_OUT}"
     echo "[ 2/10] -- start java process"
-    echo "[ 2/10] -- $JAVA_HOME/bin/java -cp "$APP_HOME/lib/*" $main &"
+    echo "[ 2/10] -- $JAVA_HOME/bin/java -cp $CLASSPATH $main &"
+    $JAVA $JAVA_OPTS -cp $CLASSPATH $main $3 --driver conf/rocketmq.yaml --agent
     echo "[ 3/10] -- check health for java application"
     #. "$APP_HOME/bin/preload.sh"
     [[ $? -ne 0 ]] && ( echo "check heath failed, exit" && exit 1 )

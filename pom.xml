@@ -101,12 +101,17 @@
         <dependency>
             <groupId>io.openmessaging.chaos</groupId>
             <artifactId>chaos-framework</artifactId>
-            <version>0.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.openmessaging.chaos</groupId>
-            <artifactId>driver-api</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.openmessaging.chaos</groupId>
+                    <artifactId>driver-kafka</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.openmessaging.chaos</groupId>
+                    <artifactId>driver-rocketmq</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -122,6 +127,13 @@
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
             <version>${rocketmq.version}</version>
+            <!--vert.x has include-->
+            <exclusions>
+                <exclusion>
+                    <artifactId>netty-all</artifactId>
+                    <groupId>io.netty</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>

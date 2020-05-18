@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 public class RMQChaosProducer extends MQChaosProducerAdapter {
 
-    private static final Logger log = LoggerFactory.getLogger(io.openmessaging.chaos.driver.rocketmq.RocketMQChaosProducer.class);
+    private static final Logger log = LoggerFactory.getLogger(RMQChaosProducer.class);
     private final DefaultMQProducer defaultMQProducer;
     private String chaosTopic;
 

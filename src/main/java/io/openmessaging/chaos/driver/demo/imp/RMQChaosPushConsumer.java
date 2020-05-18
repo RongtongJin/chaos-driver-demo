@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class RMQChaosPushConsumer extends MQChaosPushConsumerAdapter {
 
-    private static final Logger log = LoggerFactory.getLogger(io.openmessaging.chaos.driver.rocketmq.RocketMQChaosPushConsumer.class);
+    private static final Logger log = LoggerFactory.getLogger(RMQChaosPushConsumer.class);
     private DefaultMQPushConsumer defaultMQPushConsumer;
 
     public RMQChaosPushConsumer(DefaultMQPushConsumer defaultMQPushConsumer) {
